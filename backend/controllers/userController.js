@@ -30,7 +30,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if(user) {
         res.status(201).json({
-            _id: user._id,
+            _id: user.id,
             name: user.name,
             email: user.email,
             token: generateToken(user._id)
@@ -47,14 +47,14 @@ const loginUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({email})
 
     if(user && (await bcrypt.compare(password, user.password))) { 
-        res.status(200).json({
-            _id: user._id,
+        res.json({
+            _id: user.id,
             name: user.name,
             email: user.email,
             token: generateToken(user._id)
         })
     } else {
-        res.status(401)
+        res.status(400)
         throw new Error('Invalid credentials')
     }
 })

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const ticketSchema = mongoose.Schema({
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            required: [true],
+            required: true,
             ref: 'User'
         },
         product: {
@@ -18,7 +18,7 @@ const ticketSchema = mongoose.Schema({
         status: {
             type: String,
             required: true,
-            enum: ['new', 'open', 'close'],
+            enum: ['new', 'open', 'closed'],
             default: 'new'
         },
     },

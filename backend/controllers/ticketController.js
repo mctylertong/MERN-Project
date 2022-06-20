@@ -8,12 +8,12 @@ const getTickets = asyncHandler(async(req, res) => {
     res.status(200).json({message: 'getTickets'})
 })  
 
-const createTickets = asyncHandler(async(req, res) => {
+const createTicket = asyncHandler(async(req, res) => {
     
-    res.status(200).json({message: 'createTickets'})
+    res.status(200).json({message: 'createTicket'})
 })  
 
 module.exports = {
     getTickets,
-    createTickets
+    createTicket
 }
